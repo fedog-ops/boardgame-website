@@ -1,0 +1,11 @@
+.reviewCard{
+border-color: black;
+padding: auto;
+margin: 50px;
+text-align: center;
+}
+
+.reviewPics{
+    height: auto;
+    max-width: 75%;
+}
