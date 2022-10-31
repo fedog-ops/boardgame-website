@@ -1,6 +1,6 @@
 import { getReviews } from "../utils/API"
 import { useEffect, useState } from "react"
-import header from './styling/header.css'
+import homepage from './styling/homepage.css'
 
 const Homepage = () => {
     
@@ -16,8 +16,8 @@ useEffect(() => {
             
             <h3>Homepage</h3>
             <ul>
-                {reviews.map((review )=>{
-                    return (<div className = 'reviewCard'>
+                {reviews.map((review, i )=>{
+                    return (<div key = {i} className = 'reviewCard'>
                             <div>Title: {review.title}</div>
                             <div>Category: {review.category}</div>
                             <div>Designer: {review.designer}</div>
