@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
 import { useState, useEffect} from 'react'
 import { getReviews } from '../utils/API'
 
@@ -23,8 +23,10 @@ return <div>
     <div>Designer: {review.designer}</div>
     <div>Owner: {review.owner}</div>
     <div>  Created at: {review.created_at}</div>
-     <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
-    <div>Votes: {review.votes}</div>
+    <Link to={`/reviews/${review.review_id}`}>
+                             <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
+                        </Link>
+                            <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
   
 </div>)
 })}</div>

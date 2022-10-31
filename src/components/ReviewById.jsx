@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import Homepage from "./Homepage";
 
 const ReviewById = () => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [review, setReview] = useState([]);
   const { review_id } = useParams();
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     getReviewById(review_id).then((data) => {
       setReview(data);
-      setLoading(false);
+      setIsLoading(false);
     });
   }, [review_id]);
 
@@ -26,7 +26,7 @@ const ReviewById = () => {
     votes,
     review_body,
   } = review;
-  if (loading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
   return (
     <div className="reviewCard">
       <p>{review_id}</p>
