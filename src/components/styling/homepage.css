@@ -8,4 +8,9 @@ text-align: center;
 .reviewPics{
     height: auto;
     max-width: 75%;
+opacity: 1;
+}
+
+.reviewPics:hover {
+    opacity: 0.75;
 }

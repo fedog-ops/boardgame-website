@@ -8,3 +8,6 @@ export const getReviews = () => {
 export const getCategories = () => {
     return url.get('categories').then((res) => {return res.data})
 }
+export const getReviewById = (review_id) => {
+    return url.get(`reviews/${review_id}`).then((res) => {return res.data.review})
+}

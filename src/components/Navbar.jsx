@@ -2,7 +2,8 @@ import { useState } from "react"
 import {Link} from 'react-router-dom'
 
 const Navbar = ({currentCategory, setCurrentCategory}) => {
-
+    const [review_id, setReview_id] = useState('')
+   
     return ( <div>
                  <Link to='/'>
                     <button type="submit" >Home</button>
@@ -10,14 +11,31 @@ const Navbar = ({currentCategory, setCurrentCategory}) => {
                 <Link to='/category'>
                     <button type="submit" >Categories</button>
                 </Link>
-           
 <p></p>
-//FOR LATER TASK
 
-        <form >
-        <label>Category selector</label>
-    
-    <select value={currentCategory} onChange={(event) => setCurrentCategory(event.target.value)}>
+        <form>
+        <label>Review selector</label>
+            <input
+            type="text"
+            required
+            value = {review_id}
+            onChange={(event)=> setReview_id(event.target.value)}
+            id="review-search"
+            placeholder="1-24"
+        />
+     <Link to={`/reviews/${review_id}`}>
+             <button type="submit" >Search</button>
+     </Link>  
+   
+</form> 
+</div>
+    )
+}
+
+export default Navbar 
+
+
+/* <select value={currentCategory} onChange={(event) => setCurrentCategory(event.target.value)}>
         <option value="">all</option> 
         <option value="strategy">Strategy</option>
         <option value="hidden-roles">Hidden roles</option>
@@ -26,11 +44,4 @@ const Navbar = ({currentCategory, setCurrentCategory}) => {
         <option value="roll-and-write">Roll and write</option>
         <option value="deck-building">Deck building</option>
         <option value="engine-building">Engine building</option>
-</select >
-    
-</form> 
-</div>
-    )
-}
-
-export default Navbar
+</select > */
