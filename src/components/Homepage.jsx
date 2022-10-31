@@ -1,6 +1,7 @@
 import { getReviews } from "../utils/API"
 import { useEffect, useState } from "react"
 import homepage from './styling/homepage.css'
+import {Link} from 'react-router-dom'
 
 const Homepage = () => {
     
@@ -8,7 +9,7 @@ const [reviews, setReviews] = useState([])
 
 useEffect(() => {
     getReviews().then((data)=> {
-        setReviews(data)
+        setReviews(data)            
     })
 }, [])
     return (
@@ -23,7 +24,9 @@ useEffect(() => {
                             <div>Designer: {review.designer}</div>
                             <div>Owner: {review.owner}</div>
                             <div>  Created at: {review.created_at}</div>
+                        <Link to={`/reviews/${review.review_id}`}>
                              <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
+                        </Link>
                             <div>Votes: {review.votes}</div>
                           
                    </div>
