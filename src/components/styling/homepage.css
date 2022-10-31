@@ -14,3 +14,6 @@ opacity: 1;
 .reviewPics:hover {
     opacity: 0.75;
 }
+span {
+    display: inline;
+}

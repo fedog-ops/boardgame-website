@@ -27,6 +27,9 @@ return <div>
                              <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
                         </Link>
                             <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
+                            <div className = 'voteBar'>
+                            <div>❤️</div> || <div>🥴 ?</div>
+                            </div>
   
 </div>)
 })}</div>
