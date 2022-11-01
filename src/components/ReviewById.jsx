@@ -27,13 +27,20 @@ const ReviewById = () => {
     votes,
     review_body,
   } = review;
-
+const [likeIncrement, setLikeIncrement] = useState(0)
   const handleLike = () => {
-    updateVotes(review_id).then((data) => {
-        console.log('here')
-        console.log(data)
+    setLikeIncrement((currLikes) => currLikes + 1)
+    updateVotes(review_id, 1).then((data)=> {
+    }).catch((err)=>{
+     setLikeIncrement((currLikes)=>currLikes-1)
     })
-  }
+    }
+  
+  const handleDisike = () => {
+    setLikeIncrement(currLikes=>currLikes-1)
+   if(votes > 0) updateVotes(review_id, -1)
+    }
+  
   if (isLoading) return <p>Loading...</p>;
   return (
     <div className="reviewCard">
@@ -48,10 +55,10 @@ const ReviewById = () => {
         src={review.review_img_url}
         alt="Review picture"
       />
-      <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
+      <div>Votes: {`${'❤️'.repeat(review.votes + likeIncrement)}`}</div>
         <span className = 'voteBar'>
-                <button onClick={handleLike}>❤️</button>
-                <button>🥴</button>
+                <button onClick={() => handleLike(1)}>❤️</button>
+                <button onClick={() => handleDisike(-1)}>🥴</button>
         </span>
       <div>Review : {review_body}</div>
     </div>
