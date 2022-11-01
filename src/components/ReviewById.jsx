@@ -40,7 +40,10 @@ const ReviewById = () => {
         src={review.review_img_url}
         alt="Review picture"
       />
-      <div>Votes: {review.votes}</div>
+      <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
+      <span className = 'voteBar'>
+                            <button>❤️</button><button>🥴</button>
+                            </span>
       <div>Review : {review_body}</div>
     </div>
   );

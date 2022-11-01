@@ -31,9 +31,6 @@ if(isLoading) return <p>Loading ...</p>
                              <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
                         </Link>
                             <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
-                            <span className = 'voteBar'>
-                            <div>❤️</div> || <div>🥴 ?</div>
-                            </span>
                           
                    </div>
                     )
