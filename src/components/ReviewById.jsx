@@ -28,34 +28,45 @@ const ReviewById = () => {
     review_body,
   } = review;
 const [likeIncrement, setLikeIncrement] = useState(0)
+const [isEmptyLikes, setIsEmptyLikes] = useState('')
+//setIsEmptyLikes(() => (votes === 0))
+
   const handleLike = () => {
     setLikeIncrement((currLikes) => currLikes + 1)
     updateVotes(review_id, 1).then((data)=> {
     }).catch((err)=>{
      setLikeIncrement((currLikes)=>currLikes-1)
+     alert(err)
     })
     }
   
   const handleDisike = () => {
-    setLikeIncrement(currLikes=>currLikes-1)
-   if(votes > 0) updateVotes(review_id, -1)
+    
+   if(votes > 0) {updateVotes(review_id, -1)
+   setLikeIncrement(currLikes=>currLikes-1)
+   }
     }
+    const heartFactory = () => {
+       if (votes + likeIncrement <= 0)return '💔'
+        return '❤️'.repeat(review.votes + likeIncrement)
+    }
+    
   
   if (isLoading) return <p>Loading...</p>;
   return (
     <div className="reviewCard">
       <p>{review_id}</p>
-      <div>Title: {review.title}</div>
-      <div>Category: {review.category}</div>
-      <div>Designer: {review.designer}</div>
-      <div>Owner: {review.owner}</div>
+      <div>Title: {title}</div>
+      <div>Category: {category}</div>
+      <div>Designer: {designer}</div>
+      <div>Owner: {owner}</div>
       <div> Created at: {review.created_at}</div>
       <img
         className="reviewPics"
         src={review.review_img_url}
         alt="Review picture"
       />
-      <div>Votes: {`${'❤️'.repeat(review.votes + likeIncrement)}`}</div>
+      <div>Votes: {heartFactory()}</div>
         <span className = 'voteBar'>
                 <button onClick={() => handleLike(1)}>❤️</button>
                 <button onClick={() => handleDisike(-1)}>🥴</button>
