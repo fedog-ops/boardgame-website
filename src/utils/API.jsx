@@ -14,3 +14,6 @@ export const getReviewById = (review_id) => {
 export const updateVotes = (review_id, votesinc) => {
     return url.patch(`reviews/${review_id}` , {inc_votes:votesinc}).then((res) => {return res.data})
 }
+export const getComments = (review_id) => {
+    return url.get(`reviews/${review_id}/comments`).then((res) => {return res.data.comments})
+}
