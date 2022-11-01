@@ -1,0 +1,10 @@
+.comment{
+    color: red;
+  width: 500px;
+  border: 1px solid black;
+  margin: auto;
+  text-align: center;
+}
+.author {
+    color:black
+}

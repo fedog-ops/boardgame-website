@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { updateVotes } from "../utils/API"
+import { updateVotes } from "../../utils/API"
 
 const LikeButton = ({review}) => {
     const {votes, review_id} = review
