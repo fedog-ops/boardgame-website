@@ -34,6 +34,7 @@ const ReviewById = () => {
   
   if (isLoading) return <p>Loading...</p>;
   return (
+    <div>
     <div className="reviewCard">
       <p>{review_id}</p>
       <div>Title: {title}</div>
@@ -50,9 +51,11 @@ const ReviewById = () => {
       
   
     <LikeButton review={review}/>
-                
-      
-     <Comments review_id={review.review_id}/>
+       </div>         
+      <div className="reviewCard">
+        <Comments review_id={review.review_id}/>
+      </div>
+     
     </div>
   );
 };
