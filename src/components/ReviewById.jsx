@@ -1,7 +1,8 @@
-import { getReviewById } from "../utils/API";
+import { getReviewById, updateVotes } from "../utils/API";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Homepage from "./Homepage";
+
 
 const ReviewById = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,13 @@ const ReviewById = () => {
     votes,
     review_body,
   } = review;
+
+  const handleLike = () => {
+    updateVotes(review_id).then((data) => {
+        console.log('here')
+        console.log(data)
+    })
+  }
   if (isLoading) return <p>Loading...</p>;
   return (
     <div className="reviewCard">
@@ -41,9 +49,10 @@ const ReviewById = () => {
         alt="Review picture"
       />
       <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
-      <span className = 'voteBar'>
-                            <button>❤️</button><button>🥴</button>
-                            </span>
+        <span className = 'voteBar'>
+                <button onClick={handleLike}>❤️</button>
+                <button>🥴</button>
+        </span>
       <div>Review : {review_body}</div>
     </div>
   );
