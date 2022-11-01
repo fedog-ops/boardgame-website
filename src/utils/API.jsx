@@ -17,3 +17,7 @@ export const updateVotes = (review_id, votesinc) => {
 export const getComments = (review_id) => {
     return url.get(`reviews/${review_id}/comments`).then((res) => {return res.data.comments})
 }
+export const addComment = (review_id, username, body) => {
+    return url.post(`reviews/${review_id}/comments` , {username, body})
+    .then((res) => {console.log(res)})
+}
