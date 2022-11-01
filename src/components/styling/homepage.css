@@ -1,5 +1,6 @@
 .reviewCard{
 border-color: black;
+border: 5px;
 padding: auto;
 margin: 50px;
 text-align: center;
@@ -13,4 +14,8 @@ opacity: 1;
 
 .reviewPics:hover {
     opacity: 0.75;
+}
+.singleReview
+span {
+    display: inline;
 }
