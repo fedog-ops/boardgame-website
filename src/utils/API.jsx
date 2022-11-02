@@ -8,6 +8,9 @@ export const getReviews = () => {
 export const getCategories = () => {
     return url.get('categories').then((res) => {return res.data})
 }
+export const getUsers = () => {
+    return url.get('users').then((res) => {return res.data.users})
+}
 export const getReviewById = (review_id) => {
     return url.get(`reviews/${review_id}`).then((res) => {return res.data.review})
 }
@@ -16,4 +19,8 @@ export const updateVotes = (review_id, votesinc) => {
 }
 export const getComments = (review_id) => {
     return url.get(`reviews/${review_id}/comments`).then((res) => {return res.data.comments})
+}
+export const addComment = (review_id, username, body) => {
+    return url.post(`reviews/${review_id}/comments` , {username, body})
+    .then((res) => {console.log('added!')})
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Homepage from "./Homepage";
 import Comments from "./Review/Comments";
 import LikeButton from "./Review/LikeButton";
+import PostComment from "./Review/PostComment";
 
 const ReviewById = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +54,7 @@ const ReviewById = () => {
     <LikeButton review={review}/>
        </div>         
       <div className="reviewCard">
+        <PostComment review_id={review.review_id}/>
         <Comments review_id={review.review_id}/>
       </div>
      
