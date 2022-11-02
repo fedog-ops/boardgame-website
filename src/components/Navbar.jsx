@@ -11,8 +11,7 @@ const Navbar = ({currentCategory, setCurrentCategory}) => {
 useEffect(() => {
     getUsers().then(data =>{
         setUserList(data)
-        console.log(data)
-    })
+      })
 },[])
 
     return ( <div>
@@ -39,11 +38,11 @@ useEffect(() => {
      </Link>  
    
 </form> 
-
+<label>User login</label>
 <select value={user} onChange={(event) => setUser(event.target.value)}>
-        <option value="">--</option> 
-        {userList.map(user => {
-            return (<option value={user.username}>{user.username}</option>)
+        <option value='please select a user'>Please select a user</option> 
+        {userList.map((user, i) => {
+            return (<option key = {i} value={user.username}>{user.username}</option>)
         })}
         
        

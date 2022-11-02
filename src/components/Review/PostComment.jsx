@@ -4,21 +4,25 @@ import { UserContext } from "../../contexts/User"
 import { addComment } from "../../utils/API"
 
 const PostComment = ({review_id}) => {
-    const [commentButtonClicked, setCommentButtonClicked] = useState(false)
+    const [isCommentSubmitted, setIsCommentSubmitted] = useState(false)
+
     const [newComment, setNewComment] = useState('')
     const {user, setUser} = useContext(UserContext)
-const newCommentHandler = () => {
-    setCommentButtonClicked(true)
-}
+
 const handleSubmit = (event) => {
     event.preventDefault();
+    setIsCommentSubmitted(true)
     addComment(review_id, user, newComment).then((data) => {
-        console.log(data)
-    })
+      })
   }
 
 
-    if (!commentButtonClicked) return <button onClick={newCommentHandler}>Post Comment</button>
+    if (isCommentSubmitted) {
+      return (<div className="comment">
+    <p>{newComment}</p>
+    <p className ='author'>Author: {user}   || Votes: </p>
+
+    </div>)}
     return ( <form onSubmit={handleSubmit}>
        
         <label>Enter your comment:

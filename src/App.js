@@ -18,7 +18,7 @@ import ReviewById from './components/ReviewById';
 function App() {
 
 const [currentCategory, setCurrentCategory] = useState('')
-const [user, setUser] = useState('')
+const [user, setUser] = useState('please select a user')
   return (
     <UserContext.Provider value={{user, setUser}}>
       <BrowserRouter>
