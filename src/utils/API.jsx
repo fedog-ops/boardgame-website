@@ -22,5 +22,5 @@ export const getComments = (review_id) => {
 }
 export const addComment = (review_id, username, body) => {
     return url.post(`reviews/${review_id}/comments` , {username, body})
-    .then((res) => {console.log('added!')})
+    .then((res) => {})
 }

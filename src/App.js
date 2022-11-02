@@ -34,8 +34,7 @@ const [user, setUser] = useState('please select a user')
                   <Route path='/category/:slug' element = {<CategoryBySlug/>} />
                   <Route path='/reviews/:review_id' element = {<ReviewById/>} />
             </Routes>
-          
-        </div>
+          </div>
       </BrowserRouter>
     </UserContext.Provider>
   );
