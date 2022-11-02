@@ -8,6 +8,7 @@ import {UserContext} from './contexts/User'
 //components
 import Header from './components/Header';
 import Navbar from './components/Navbar';
+import CatBar from './components/CatBar';
 
 //routes
 import Homepage from './components/Homepage';
@@ -26,7 +27,7 @@ const [user, setUser] = useState('please select a user')
           <p>{currentCategory}</p>
             <Header/>
             <Navbar/>
-
+            <CatBar />
             <Routes>
                   <Route path='/' element ={<Homepage/>} />
                   <Route path='/category'  element ={<Category currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>} />

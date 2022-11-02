@@ -4,18 +4,20 @@ import { getReviews } from '../utils/API'
 
 const CategoryBySlug = () => {
     const {slug} = useParams()
-
+    const [isLoading, setIsLoading] = useState(true)
     const [displayCategories, setDisplayCategories] = useState([])
 useEffect(() => {
+    setIsLoading(true) 
     getReviews().then((data) => {
         const catFiltered = data.filter(x => x.category === slug)
         // I missed out the category query for getReviews on my datbase
-        setDisplayCategories(catFiltered)
+        setDisplayCategories(catFiltered) 
+        setIsLoading(false)        
     })
-} ,[])
-
+} ,[slug])
+if(isLoading) return <p>Loading ...</p>
 return <div>
-    <h3>{slug} games</h3>
+    <h3>{slug} games ({displayCategories.length})</h3>
     {displayCategories.map((review, i) => {
     return (<div key = {i} className = 'reviewCard'>
     <div>Title: {review.title}</div>

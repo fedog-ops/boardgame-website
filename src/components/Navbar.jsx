@@ -16,28 +16,9 @@ useEffect(() => {
 
     return ( <div>
                  <Link to='/'>
-                    <button type="submit" >Home</button>
+                    <button type="submit" >🏡</button>
                 </Link>  
-                <Link to='/category'>
-                    <button type="submit" >Categories</button>
-                </Link>
-<p></p>
-
-        <form>
-        <label>Review selector</label>
-            <input
-            type="text"
-            required
-            value = {review_id}
-            onChange={(event)=> setReview_id(event.target.value)}
-            id="review-search"
-            placeholder="1-24"
-        />
-     <Link to={`/reviews/${review_id}`}>
-             <button type="submit" >Search</button>
-     </Link>  
-   
-</form> 
+              
 <label>User login</label>
 <select value={user} onChange={(event) => setUser(event.target.value)}>
         <option value='please select a user'>Please select a user</option> 
@@ -55,4 +36,17 @@ useEffect(() => {
 export default Navbar 
 
 
-/* */
+{/* <form>
+        <label>Review selector</label>
+            <input
+            type="text"
+            required
+            value = {review_id}
+            onChange={(event)=> setReview_id(event.target.value)}
+            id="review-search"
+            placeholder="1-24"
+        />
+     <Link to={`/reviews/${review_id}`}>
+             <button type="submit" >Search</button>
+     </Link>  
+    <form/> */}
