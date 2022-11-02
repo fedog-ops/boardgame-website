@@ -1,9 +1,20 @@
-import { useState } from "react"
+import { useState, useContext, useEffect } from "react"
 import {Link} from 'react-router-dom'
+import { UserContext } from "../contexts/User"
+import { getUsers } from "../utils/API"
 
 const Navbar = ({currentCategory, setCurrentCategory}) => {
     const [review_id, setReview_id] = useState('')
+    const [userList, setUserList] = useState([])
+    const {user, setUser} = useContext(UserContext)
    
+useEffect(() => {
+    getUsers().then(data =>{
+        setUserList(data)
+        console.log(data)
+    })
+},[])
+
     return ( <div>
                  <Link to='/'>
                     <button type="submit" >Home</button>
@@ -28,6 +39,16 @@ const Navbar = ({currentCategory, setCurrentCategory}) => {
      </Link>  
    
 </form> 
+
+<select value={user} onChange={(event) => setUser(event.target.value)}>
+        <option value="">--</option> 
+        {userList.map(user => {
+            return (<option value={user.username}>{user.username}</option>)
+        })}
+        
+       
+</select > 
+<img />
 </div>
     )
 }
@@ -35,13 +56,4 @@ const Navbar = ({currentCategory, setCurrentCategory}) => {
 export default Navbar 
 
 
-/* <select value={currentCategory} onChange={(event) => setCurrentCategory(event.target.value)}>
-        <option value="">all</option> 
-        <option value="strategy">Strategy</option>
-        <option value="hidden-roles">Hidden roles</option>
-        <option value="dexterity">Dexterity</option>
-        <option value="push-your-luck">Push your luck</option>
-        <option value="roll-and-write">Roll and write</option>
-        <option value="deck-building">Deck building</option>
-        <option value="engine-building">Engine building</option>
-</select > */
+/* */

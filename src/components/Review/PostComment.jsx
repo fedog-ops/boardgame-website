@@ -1,16 +1,18 @@
-import { useState } from "react"
+import userEvent from "@testing-library/user-event"
+import { useState, useContext } from "react"
+import { UserContext } from "../../contexts/User"
 import { addComment } from "../../utils/API"
 
 const PostComment = ({review_id}) => {
     const [commentButtonClicked, setCommentButtonClicked] = useState(false)
     const [newComment, setNewComment] = useState('')
-    const [username, setUsername] = useState('')
+    const {user, setUser} = useContext(UserContext)
 const newCommentHandler = () => {
     setCommentButtonClicked(true)
 }
 const handleSubmit = (event) => {
     event.preventDefault();
-    addComment(review_id, username, newComment).then((data) => {
+    addComment(review_id, user, newComment).then((data) => {
         console.log(data)
     })
   }
@@ -18,7 +20,7 @@ const handleSubmit = (event) => {
 
     if (!commentButtonClicked) return <button onClick={newCommentHandler}>Post Comment</button>
     return ( <form onSubmit={handleSubmit}>
-        <p>{newComment}</p>
+       
         <label>Enter your comment:
           <input
             type="text" 
@@ -28,14 +30,11 @@ const handleSubmit = (event) => {
           
         </label> 
         <p></p>
-        <label>Author:
-            <input
-            type="text" 
-            value = {username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-            </label>
+        <label>Loggin in as : {user}  
+           
             <button>Submit</button>
+            </label> 
+
       </form>)
 }
 export default PostComment
