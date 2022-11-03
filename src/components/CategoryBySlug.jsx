@@ -1,6 +1,7 @@
 import {useParams, Link} from 'react-router-dom'
 import { useState, useEffect} from 'react'
 import { getReviews } from '../utils/API'
+import homepage from './styling/homepage.css'
 
 const CategoryBySlug = () => {
     const {slug} = useParams()
@@ -11,7 +12,8 @@ useEffect(() => {
     getReviews().then((data) => {
         const catFiltered = data.filter(x => x.category === slug)
         // I missed out the category query for getReviews on my datbase
-        setDisplayCategories(catFiltered) 
+        if (slug === 'all') {setDisplayCategories(data)}
+        else {setDisplayCategories(catFiltered) }
         setIsLoading(false)        
     })
 } ,[slug])

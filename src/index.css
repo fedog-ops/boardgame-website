@@ -19,3 +19,25 @@ code {
 .Navbar{
   background-color: aquamarine;
 }
+.userAvatar{
+height: 25vh;
+    max-width: 25vh;
+    margin: 5vh;
+    padding: 5vh;
+} 
+.userList{
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: inherit;
+  font-size: xx-large;
+}  
+flex {
+  background-color: rgb(255, 255, 255);
+  max-width: 100vh;
+  height: auto;
+  margin: 1vh;
+  padding: 1vh;
+border-radius: 50%;}

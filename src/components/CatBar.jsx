@@ -19,7 +19,7 @@ const CatBar = () => {
   return (
     <div>
         <div>
-          <Link to='/'>  <button onClick={buttonHandler}>All</button></Link>
+          <Link to='/category/all'>  <button onClick={buttonHandler}>🏡</button></Link>
         
         {displayCategories.map((category, i) => {
             return (
@@ -28,6 +28,7 @@ const CatBar = () => {
             </Link>)
         })}
         <Link to='/category/'>  <button onClick={buttonHandler}>More Info</button></Link>
+        <Link to='/'>  <button onClick={buttonHandler}>Change User</button></Link>
         <button onClick={buttonHandler}>x</button>
         </div>
  
