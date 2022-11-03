@@ -4,12 +4,14 @@ import homepage from './styling/homepage.css'
 import {Link} from 'react-router-dom'
 
 const Homepage = () => {
+    //usePArmas undefined
 const [isLoading, setIsLoading] = useState(true)
 const [reviews, setReviews] = useState([])
-
+const [sort_by, setSort_by] = useState('')
+const [order_by, setOrder_by] = useState('')
 useEffect(() => {
     setIsLoading(true)
-    getReviews().then((data)=> {
+    getReviews('category', "DESC").then((data)=> {
         setReviews(data)  
         setIsLoading(false)          
     })
@@ -19,6 +21,10 @@ if(isLoading) return <p>Loading ...</p>
         <div className ="Homepage">
             
             <h3>Homepage</h3>
+            <submit>
+                <option>ASC</option>
+                <option>DESC</option>
+            </submit>
             <ul>
                 {reviews.map((review, i )=>{
                     return (<div key = {i} className = 'reviewCard'>
