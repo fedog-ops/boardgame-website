@@ -15,19 +15,7 @@ useEffect(() => {
 },[])
 
     return ( <div>
-<label>User login</label>
-<select value={user} onChange={(event) => setUser(event.target.value)}>
-        <option value='please select a user'>Please select a user</option> 
-        {userList.map((user, i) => {
-            return (<option key = {i} value={user.username}>{user.username}</option>)
-        })}
-        
-       
-</select > 
-<img /> 
-<Link to='/category/all'>
-                    <button type="submit" >Enter</button>
-                </Link>  
+
 
 <main>
     <h2>Users</h2>
@@ -45,17 +33,3 @@ useEffect(() => {
 export default UserSelect 
 
 
-{/* <form>
-        <label>Review selector</label>
-            <input
-            type="text"
-            required
-            value = {review_id}
-            onChange={(event)=> setReview_id(event.target.value)}
-            id="review-search"
-            placeholder="1-24"
-        />
-     <Link to={`/reviews/${review_id}`}>
-             <button type="submit" >Search</button>
-     </Link>  
-    <form/> */}

@@ -7,31 +7,35 @@ import Error from "../Error";
 const PostComment = ({ review_id }) => {
   const [isCommentSubmitted, setIsCommentSubmitted] = useState(false);
   const [err, setErr] = useState(null);
-  const [newComment, setNewComment] = useState("");
+  const [newComment, setNewComment] = useState('');
   const { user, setUser } = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+    console.log(newComment)
+    if(newComment !== '' && user !== 'please select a user'){
     addComment(review_id, user, newComment)
-      .then((data) => {setIsCommentSubmitted(true);})
+      .then((data) => {
+        setIsCommentSubmitted(true)
+        
+        const sentTime = setTimeout(() => {
+          setIsCommentSubmitted(false)
+          setNewComment('')
+        }, 1000)
+        ;})
       .catch(
         ({response: {data: { msg },status}}) => {
           setIsCommentSubmitted(false)
           setErr({ msg, status });
         }
-      );
+      );}
   };
 
   if (isCommentSubmitted) {
     return (
- 
        <div className="comment">
         <p>Sent</p>
-            <p>{newComment}</p>
-            <p className="author">Author: {user} || Votes: </p>
           </div>
-
     );
   }
 
@@ -40,14 +44,14 @@ const PostComment = ({ review_id }) => {
    
     <form onSubmit={handleSubmit}>
     <div> {err ? <Error err={err} /> : '' } </div>
-      <label>
-        Enter your comment:
-        <input
+      
+        <input className="comment"
+        placeholder="Enter your comment..."
           type="text"
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-      </label>
+    
       <p></p>
       <label>
         Loggin in as : {user}

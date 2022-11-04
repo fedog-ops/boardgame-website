@@ -24,3 +24,8 @@ export const addComment = (review_id, username, body) => {
     return url.post(`reviews/${review_id}/comments` , {username, body})
     .then((res) => {})
 }
+export const deleteCommentById = (comment_id) => {
+    return url.delete(`comments/${comment_id}`)
+    .then((res) => {})
+}
+
