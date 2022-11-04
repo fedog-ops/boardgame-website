@@ -1,22 +1,26 @@
 import { getReviewById, updateVotes } from "../utils/API";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Homepage from "./Homepage";
+
 import Comments from "./Review/Comments";
 import LikeButton from "./Review/LikeButton";
 import PostComment from "./Review/PostComment";
+import Error from './Error'
 
 const ReviewById = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [review, setReview] = useState([]);
   const { review_id } = useParams();
+  const [err, setErr] = useState(null)
 
   useEffect(() => {
     setIsLoading(true);
     getReviewById(review_id).then((data) => {
       setReview(data);
       setIsLoading(false);
-    });
+    }).catch(({response: {data: { msg },status}}) =>{
+      setErr({msg, status})
+  });
   }, [review_id]);
 
   const {
@@ -32,7 +36,7 @@ const ReviewById = () => {
 
 
   
-  
+  if(err) return <Error err={err}/>
   if (isLoading) return <p>Loading...</p>;
   return (
     <div>

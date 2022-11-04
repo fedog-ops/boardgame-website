@@ -2,15 +2,21 @@ import {useEffect, useState} from 'react'
 import { getCategories } from '../utils/API'
 import category from './styling/category.css'
 import {Link} from 'react-router-dom'
+import Error from './Error'  
 
 const Category = ({currentCategory}) => {
-const [displayCategories, setDisplayCategories] = useState([])
+    const [displayCategories, setDisplayCategories] = useState([])
+    const [err, setErr] = useState(null)
 useEffect(() => {
     getCategories().then((data) => {
         setDisplayCategories(data)
     })
+    .catch(({response: {data: { msg },status}}) =>{
+        setErr({msg, status})
+    });  
 } ,[])
 
+if(err) return <Error err={err}/>
     return (
 
         <div>

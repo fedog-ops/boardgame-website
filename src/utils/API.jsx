@@ -28,4 +28,3 @@ export const deleteCommentById = (comment_id) => {
     return url.delete(`comments/${comment_id}`)
     .then((res) => {})
 }
-
