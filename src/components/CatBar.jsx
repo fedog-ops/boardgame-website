@@ -15,7 +15,10 @@ const CatBar = () => {
   const buttonHandler = () => {
     setButtonClicked((bool) => !bool)
   }
-  if(!buttonClicked) return <button onClick={buttonHandler}>Categories v</button>
+  if(!buttonClicked) return (<div>
+<button onClick={buttonHandler}>Categories v</button>
+<Link to='/'>  <button >Change User</button></Link>
+    </div>)
   return (
     <div>
         <div>

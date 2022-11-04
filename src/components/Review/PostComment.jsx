@@ -25,13 +25,9 @@ const PostComment = ({ review_id }) => {
 
   if (isCommentSubmitted) {
     return (
- 
        <div className="comment">
         <p>Sent</p>
-            <p>{newComment}</p>
-            <p className="author">Author: {user} || Votes: </p>
           </div>
-
     );
   }
 

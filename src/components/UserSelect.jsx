@@ -15,7 +15,7 @@ useEffect(() => {
 },[])
 
     return ( <div>
-<label>User login</label>
+{/* <label>User login</label>
 <select value={user} onChange={(event) => setUser(event.target.value)}>
         <option value='please select a user'>Please select a user</option> 
         {userList.map((user, i) => {
@@ -23,11 +23,11 @@ useEffect(() => {
         })}
         
        
-</select > 
-<img /> 
+</select >  */}
+{/* <img /> 
 <Link to='/category/all'>
                     <button type="submit" >Enter</button>
-                </Link>  
+                </Link>   */}
 
 <main>
     <h2>Users</h2>

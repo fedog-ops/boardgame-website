@@ -24,7 +24,7 @@ const [user, setUser] = useState('please select a user')
     <UserContext.Provider value={{user, setUser}}>
       <BrowserRouter>
         <div className="main">
-          <p>{currentCategory}</p>
+          <p>{user}</p>
             <Header/>
            
             <CatBar />
