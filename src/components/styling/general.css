@@ -21,7 +21,8 @@ text-align: centwe;
 .reviewPics{
     max-height: 30vh;
     max-width: 30vh;
-    object-fit: fill
+   
+    border-radius: 2%;
 }
 .reviewContents{
     width: 40vh;
