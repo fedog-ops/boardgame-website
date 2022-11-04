@@ -6,7 +6,7 @@ import Comments from "./Review/Comments";
 import LikeButton from "./Review/LikeButton";
 import PostComment from "./Review/PostComment";
 import Error from './Error'
-
+import './styling/general.css'
 const ReviewById = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [review, setReview] = useState([]);
@@ -40,14 +40,14 @@ const ReviewById = () => {
   if (isLoading) return <p>Loading...</p>;
   return (
     <div>
-    <div className="reviewCard">
+    <div className="soloReviewCard">
       <p>{review_id}</p>
       <div>Title: {title}</div>
       <div>Category: {category}</div>
       <div>Designer: {designer}</div>
       <div>Owner: {owner}</div>
       <div>Created at: {review.created_at}</div>
-        <div>Review : {review_body}</div>
+        <div className="reviewBody">Review : {review_body}</div>
         <img
         className="reviewPics"
         src={review.review_img_url}
@@ -57,7 +57,7 @@ const ReviewById = () => {
   
     <LikeButton review={review}/>
        </div>         
-      <div className="reviewCard">
+      <div className="soloReviewCard">
         <PostComment review_id={review.review_id}/>
         <Comments review_id={review.review_id}/>
       </div>

@@ -28,7 +28,7 @@ const [err, setErr] = useState(null)
     return (<div>
         {comments.map(comment => {
             return (<div key={comment.comment_id} className="comment">
-                <p>{comment.body}</p>
+                <p className ='commentBody'>{comment.body}</p>
                 <p className ='author'>Author: {comment.author}   || Votes: {'⭐️'.repeat(comment.votes)}</p>
                {(user === comment.author) ?   <button onClick={() => deleteComment(comment.comment_id, comment.author)}>Delete comment: 🗑</button>:  <p></p>} 
             

@@ -2,7 +2,7 @@ import {useParams, Link} from 'react-router-dom'
 import { useState, useEffect} from 'react'
 import { getReviews } from '../utils/API'
 import Error from './Error'
-import homepage from './styling/homepage.css'
+import general from './styling/general.css'
 
 const CategoryBySlug = () => {
     const {slug} = useParams()
@@ -51,10 +51,10 @@ return <div>
     <option value ='ASC'> ASC </option>
     <option value ='DESC'> DESC </option>
 </select></label>
-
+<div className='reviewList'>
     {displayReviews.map((review, i) => {
     return (<div key = {i} className = 'reviewCard'>
-    <div>Title: {review.title}</div>
+    <div className ='reviewContents'>Title: {review.title}</div>
     <div>Category: {review.category}</div>
     <div>Designer: {review.designer}</div>
     <div>Owner: {review.owner}</div>
@@ -62,10 +62,11 @@ return <div>
     <Link to={`/reviews/${review.review_id}`}>
                              <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
                         </Link>
-                            <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
+                            <div className ='reviewContents'>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
                       
 </div>)
 })}</div>
+</div>
 }
 
 export default CategoryBySlug
