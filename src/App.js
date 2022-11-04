@@ -7,13 +7,14 @@ import {UserContext} from './contexts/User'
 
 //components
 import Header from './components/Header';
-import Navbar from './components/Navbar';
+import CatBar from './components/CatBar';
 
 //routes
 import Homepage from './components/Homepage';
 import Category from './components/Category'
 import CategoryBySlug from './components/CategoryBySlug';
 import ReviewById from './components/ReviewById';
+import UserSelect from './components/UserSelect';
 
 function App() {
 
@@ -25,16 +26,16 @@ const [user, setUser] = useState('please select a user')
         <div className="main">
           <p>{currentCategory}</p>
             <Header/>
-            <Navbar/>
-
+           
+            <CatBar />
             <Routes>
-                  <Route path='/' element ={<Homepage/>} />
+                   <Route path='/' element ={<UserSelect/>}/>
+                   {/* <Route path='/category/all' element ={<Homepage/>} /> */}
                   <Route path='/category'  element ={<Category currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>} />
                   <Route path='/category/:slug' element = {<CategoryBySlug/>} />
                   <Route path='/reviews/:review_id' element = {<ReviewById/>} />
             </Routes>
-          
-        </div>
+          </div>
       </BrowserRouter>
     </UserContext.Provider>
   );

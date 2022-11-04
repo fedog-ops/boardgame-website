@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 const url = axios.create({ baseURL: 'https://felix-game-server.herokuapp.com/api/' })
-
-export const getReviews = () => {
-    return url.get('reviews').then((res) => {return res.data.reviews})
+// 
+export const getReviews = (sort_by = 'created_at', order_by = 'DESC') => {
+    return url.get(`reviews?sort_by=${sort_by}&order_by=${order_by}`).then((res) => {return res.data.reviews})
 }
 export const getCategories = () => {
     return url.get('categories').then((res) => {return res.data})
@@ -22,5 +22,5 @@ export const getComments = (review_id) => {
 }
 export const addComment = (review_id, username, body) => {
     return url.post(`reviews/${review_id}/comments` , {username, body})
-    .then((res) => {console.log('added!')})
+    .then((res) => {})
 }

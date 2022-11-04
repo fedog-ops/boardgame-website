@@ -18,7 +18,7 @@ const [comments, setComments] = useState([])
         {comments.map(comment => {
             return (<div key={comment.comment_id} className="comment">
                 <p>{comment.body}</p>
-                <p className ='author'>Author: {comment.author}   || Votes: {emojiGenerator().repeat(comment.votes)}</p>
+                <p className ='author'>Author: {comment.author}   || Votes: {'⭐️'.repeat(comment.votes)}</p>
 
                 </div>)
         })}
