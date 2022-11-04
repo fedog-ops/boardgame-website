@@ -20,12 +20,7 @@ const LikeButton = ({review}) => {
         })
         }
       
-      const handleDisike = () => {
-        
-       if(votes > 0) {updateVotes(review_id, -1)
-       setLikeIncrement(currLikes=>currLikes-1)
-       }
-        }
+     
         
         const heartFactory = () => {
            if (votes + likeIncrement <= 0)return '💔'

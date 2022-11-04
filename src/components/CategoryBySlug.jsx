@@ -1,29 +1,43 @@
 import {useParams, Link} from 'react-router-dom'
 import { useState, useEffect} from 'react'
 import { getReviews } from '../utils/API'
-import homepage from './styling/homepage.css'
+import Error from './Error'
+import general from './styling/general.css'
 
 const CategoryBySlug = () => {
     const {slug} = useParams()
     const [isLoading, setIsLoading] = useState(true)
-    const [displayCategories, setDisplayCategories] = useState([])
+    const [displayReviews, setDisplayReviews] = useState([])
     const [sort_by, setSort_by] = useState('created_at')
     const [order_by, setOrder_by] = useState('DESC')
-    //sort and order left initally empty as API gives these defaults 
-    //or hard code 'created_at' and 'DESC'
+    const [err, setErr] = useState(null)
+   
+
+    //temp error handler until database can filter categories
+   
+   
 useEffect(() => {
     setIsLoading(true) 
-    getReviews(sort_by, order_by).then((data) => {
-        const catFiltered = data.filter(x => x.category === slug)
+    getReviews(sort_by, order_by).then((data) => { 
         // I missed out the category query for getReviews on my datbase
-        if (slug === 'all') {setDisplayCategories(data)}
-        else {setDisplayCategories(catFiltered) }
+        //temp error handler for if the cat url is incorrect
+    const allSlugs = ['all', 'strategy', 'hidden-roles', 'dexterity', 'push-your-luck', 'roll-and-write', 'deck-building']
+    if (!allSlugs.includes(slug)) {setErr({msg:'Category does not exist', status: 400})}
+    
+        const catFiltered = data.filter(x => x.category === slug)
+        
+        if (slug === 'all') {setDisplayReviews(data)}
+        else {setDisplayReviews(catFiltered) }
         setIsLoading(false)        
+    }).catch(({response: {data: { msg },status}}) =>{
+        setErr({msg, status})
     })
-} ,[slug, order_by, sort_by])
+} ,[ slug, order_by, sort_by])
+
+if(err) return <Error err={err}/>
 if(isLoading) return <p>Loading ...</p>
 return <div>
-    <h3>{slug} games ({displayCategories.length})</h3>
+    <h3>{slug} games ({displayReviews.length})</h3>
 <label> Sort By:
     <select value={sort_by} onChange={(e)=>{setSort_by(e.target.value)}}>
     <option value ='category'> Category </option>
@@ -37,10 +51,10 @@ return <div>
     <option value ='ASC'> ASC </option>
     <option value ='DESC'> DESC </option>
 </select></label>
-
-    {displayCategories.map((review, i) => {
+<div className='reviewList'>
+    {displayReviews.map((review, i) => {
     return (<div key = {i} className = 'reviewCard'>
-    <div>Title: {review.title}</div>
+    <div className ='reviewContents'>Title: {review.title}</div>
     <div>Category: {review.category}</div>
     <div>Designer: {review.designer}</div>
     <div>Owner: {review.owner}</div>
@@ -48,10 +62,11 @@ return <div>
     <Link to={`/reviews/${review.review_id}`}>
                              <img className ='reviewPics' src={review.review_img_url} alt='Review picture'/>
                         </Link>
-                            <div>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
+                            <div className ='reviewContents'>Votes: {`${'❤️'.repeat(review.votes)}`}</div>
                       
 </div>)
 })}</div>
+</div>
 }
 
 export default CategoryBySlug

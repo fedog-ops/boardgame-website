@@ -10,7 +10,6 @@ import Header from './components/Header';
 import CatBar from './components/CatBar';
 
 //routes
-import Homepage from './components/Homepage';
 import Category from './components/Category'
 import CategoryBySlug from './components/CategoryBySlug';
 import ReviewById from './components/ReviewById';
