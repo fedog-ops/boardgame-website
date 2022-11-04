@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getCategories } from "../utils/API";
 import category from "./styling/category.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../contexts/User";
 
 const CatBar = () => {
     const [buttonClicked, setButtonClicked] = useState(false)
@@ -34,7 +35,8 @@ const CatBar = () => {
         <Link to='/'>  <button onClick={buttonHandler}>Change User</button></Link>
         <button onClick={buttonHandler}>x</button>
         </div>
- 
+
+      
     </div>
   );
 };
