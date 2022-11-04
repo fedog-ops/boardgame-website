@@ -34,7 +34,7 @@ height: 25vh;
   font-size: inherit;
   font-size: xx-large;
 }  
-flex {
+.userCard {
   background-color: rgb(255, 255, 255);
   max-width: 100vh;
   height: auto;

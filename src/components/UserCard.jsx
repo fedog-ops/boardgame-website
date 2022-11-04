@@ -6,14 +6,15 @@ const UserCard = ({ userIndivudal }) => {
   const { user, setUser } = useContext(UserContext);
   return (
 <Link to='/category/all'>
-      <flex
+      <div
         onClick={(event) => {
           setUser(userIndivudal.username);
         }}
+        className ='userCard'
       >
         <img className="userAvatar" src={userIndivudal.avatar_url}></img>
         <div>{userIndivudal.username}</div>
-      </flex>
+      </div>
 </Link>
   );
 };

@@ -7,7 +7,6 @@ import {UserContext} from './contexts/User'
 
 //components
 import Header from './components/Header';
-import Navbar from './components/UserSelect';
 import CatBar from './components/CatBar';
 
 //routes
@@ -15,6 +14,7 @@ import Homepage from './components/Homepage';
 import Category from './components/Category'
 import CategoryBySlug from './components/CategoryBySlug';
 import ReviewById from './components/ReviewById';
+import UserSelect from './components/UserSelect';
 
 function App() {
 
@@ -29,7 +29,7 @@ const [user, setUser] = useState('please select a user')
            
             <CatBar />
             <Routes>
-                   <Route path='/' element ={<Navbar/>}/>
+                   <Route path='/' element ={<UserSelect/>}/>
                    {/* <Route path='/category/all' element ={<Homepage/>} /> */}
                   <Route path='/category'  element ={<Category currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>} />
                   <Route path='/category/:slug' element = {<CategoryBySlug/>} />
