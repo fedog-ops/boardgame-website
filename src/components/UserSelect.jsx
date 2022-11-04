@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { UserContext } from "../contexts/User"
 import { getUsers } from "../utils/API"
 import UserCard from "./UserCard"
-const Navbar = ({currentCategory, setCurrentCategory}) => {
+const UserSelect = ({currentCategory, setCurrentCategory}) => {
     const [review_id, setReview_id] = useState('')
     const [userList, setUserList] = useState([])
     const {user, setUser} = useContext(UserContext)
@@ -15,8 +15,6 @@ useEffect(() => {
 },[])
 
     return ( <div>
-                
-              
 <label>User login</label>
 <select value={user} onChange={(event) => setUser(event.target.value)}>
         <option value='please select a user'>Please select a user</option> 
@@ -44,7 +42,7 @@ useEffect(() => {
     )
 }
 
-export default Navbar 
+export default UserSelect 
 
 
 {/* <form>
