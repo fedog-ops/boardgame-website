@@ -42,7 +42,7 @@ const PostComment = ({ review_id }) => {
   return (
     
    
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='postComment'>
     <div> {err ? <Error err={err} /> : '' } </div>
       
         <input className="comment"

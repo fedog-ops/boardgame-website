@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <div className ="Header" >
-            <h1>Boardgame App</h1>
+            <h1 className ='headerText'>Boardgame Reviews</h1>
             </div>
     )
 }

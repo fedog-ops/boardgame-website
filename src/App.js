@@ -23,10 +23,9 @@ const [user, setUser] = useState('please select a user')
     <UserContext.Provider value={{user, setUser}}>
       <BrowserRouter>
         <div className="main">
-          <p>{user}</p>
             <Header/>
-           
             <CatBar />
+             <p>{user}</p>
             <Routes>
                    <Route path='/' element ={<UserSelect/>}/>
                    {/* <Route path='/category/all' element ={<Homepage/>} /> */}

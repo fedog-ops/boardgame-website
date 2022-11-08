@@ -13,18 +13,30 @@ code {
     monospace;
 }
 .Header{
-  background-color: aqua;
+  background-size: 55vh;
+  height:9vh;
+  
+}
+.headerText{
+  color: rgb(10, 227, 46);
   text-align: center;
+  border-color: black;
+  -webkit-text-stroke:.75px rgb(0, 0, 0);
+  font-family: 'Arial-Black', Helvetica, sans-serif; color: rgb(62, 207, 14); 
+font-size: 4vh;
 }
-.Navbar{
-  background-color: aquamarine;
-}
+
+
 .userAvatar{
-height: 25vh;
-    max-width: 25vh;
+height: 10vh;
+    width: 10vh;
     margin: 5vh;
     padding: 5vh;
+   margin: auto;
 } 
+.userAvatar:hover {
+  opacity: 0.50;
+}
 .userList{
 
   display: flex;
@@ -32,12 +44,13 @@ height: 25vh;
   flex-wrap: wrap;
   text-align: center;
   font-size: inherit;
-  font-size: xx-large;
+  font-size: x-large;
 }  
 .userCard {
   background-color: rgb(255, 255, 255);
-  max-width: 100vh;
-  height: auto;
+  width: 25vh;
+  height: 25vh;
   margin: 1vh;
   padding: 1vh;
-border-radius: 50%;}
+border-radius: 10%;
+}

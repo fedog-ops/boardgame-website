@@ -13,7 +13,7 @@ const UserCard = ({ userIndivudal }) => {
         className ='userCard'
       >
         <img className="userAvatar" src={userIndivudal.avatar_url}></img>
-        <div>{userIndivudal.username}</div>
+        <div className="userName">{userIndivudal.username}</div>
       </div>
 </Link>
   );
