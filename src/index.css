@@ -44,13 +44,18 @@ height: 10vh;
   flex-wrap: wrap;
   text-align: center;
   font-size: inherit;
-  font-size: x-large;
+  font-size: large;
 }  
 .userCard {
   background-color: rgb(255, 255, 255);
-  width: 25vh;
+  width: 30vh;
   height: 25vh;
   margin: 1vh;
   padding: 1vh;
 border-radius: 10%;
+}
+.reviewBody{
+
+  width: 40vh;
+ text-align: left;
 }

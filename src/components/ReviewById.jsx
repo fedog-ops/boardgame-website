@@ -47,7 +47,9 @@ const ReviewById = () => {
       <div>Designer: {designer}</div>
       <div>Owner: {owner}</div>
       <div>Created at: {review.created_at}</div>
+      <p></p>
         <div className="reviewBody">Review : {review_body}</div>
+        <p></p>
         <img
         className="reviewPics"
         src={review.review_img_url}
