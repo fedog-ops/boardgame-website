@@ -46,11 +46,11 @@ margin:auto;
 .reviewPics:hover {
     opacity: 0.75;
 }
-.singleReview
-span {
-    display: inline;
-}
 
+.title{
+       font-size: large;
+       padding-left: 1vh;
+}
 .comment{
   color:rgb(67, 57, 57);
   width: 40vh;
@@ -61,7 +61,7 @@ span {
 .commentBody{
     color:rgb(67, 57, 57);
     max-width: 40vh;
-   text-align: left;
+    text-align: left;
     margin: auto;
 }
 .author {

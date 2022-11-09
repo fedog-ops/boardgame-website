@@ -2,7 +2,7 @@ import {useParams, Link} from 'react-router-dom'
 import { useState, useEffect} from 'react'
 import { getReviews } from '../utils/API'
 import Error from './Error'
-import general from './styling/general.css'
+import reviews from './styling/reviews.css'
 
 const CategoryBySlug = () => {
     const {slug} = useParams()
@@ -38,7 +38,7 @@ if(err) return <Error err={err}/>
 if(isLoading) return <p>Loading ...</p>
 return <div>
     <h3>{slug} games ({displayReviews.length})</h3>
-<label> Sort By:
+<label className='dropDownBox'> Sort By:
     <select value={sort_by} onChange={(e)=>{setSort_by(e.target.value)}}>
     <option value ='category'> Category </option>
     <option value ='created_at'> Created at </option>
@@ -46,7 +46,7 @@ return <div>
     <option value ='owner'> Owner </option>
     <option value ='votes'> Votes </option>
 </select></label>
-<label>Order By:
+<label className='dropDownBox'>Order By:
 <select value={order_by} onChange={(e)=>{setOrder_by(e.target.value)}}>
     <option value ='ASC'> ASC </option>
     <option value ='DESC'> DESC </option>

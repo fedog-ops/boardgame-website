@@ -8,6 +8,7 @@ import {UserContext} from './contexts/User'
 //components
 import Header from './components/Header';
 import CatBar from './components/CatBar';
+import Avatar from './components/Avatar'
 
 //routes
 import Category from './components/Category'
@@ -24,8 +25,11 @@ const [user, setUser] = useState('please select a user')
       <BrowserRouter>
         <div className="main">
             <Header/>
-            <CatBar />
-             <p>{user}</p>
+            <div className ="topBar">
+            <CatBar/>
+            <Avatar/>
+            </div>
+            
             <Routes>
                    <Route path='/' element ={<UserSelect/>}/>
                    {/* <Route path='/category/all' element ={<Homepage/>} /> */}

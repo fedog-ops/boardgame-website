@@ -7,6 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(99, 171, 113);
 }
+h3{
+ text-transform: capitalize;
+  margin-left: 1vh;
+}
+h2{
+  margin-left: 1vh;
+}
+p{
+  text-transform: capitalize;
+  margin-left: 1vh;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -58,4 +69,19 @@ border-radius: 10%;
 
   width: 40vh;
  text-align: left;
+}
+.dropDownBox{
+  padding-left: 1vh;
+}
+.avPic{
+  width: auto;
+  height: 50px;
+  padding-left: 4vh;
+  padding-right: 1vh;
+  position: relative;
+  right: 0px;
+
+}
+.topBar{
+  display: flex;
 }
