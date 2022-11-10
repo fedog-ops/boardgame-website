@@ -11,7 +11,7 @@ For this project I used React.js as the main choice of Front-End framework and T
 Setup & Installation
 In order to install and locally run this project, please run the following in your terminal:
 
-git clone LINK ...
+git clone https://github.com/fedog-ops/boardgame-website
 
 After successfully cloning this project, ensure that you are currently inside this directory by typing the following command:
 
