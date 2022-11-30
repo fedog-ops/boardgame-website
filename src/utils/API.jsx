@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = axios.create({ baseURL: 'https://felix-game-server.herokuapp.com/api/' })
+const url = axios.create({ baseURL: 'https://felix-boardgame-server.cyclic.app/api/' })
 // 
 export const getReviews = (sort_by = 'created_at', order_by = 'DESC') => {
     return url.get(`reviews?sort_by=${sort_by}&order_by=${order_by}`).then((res) => {return res.data.reviews})
