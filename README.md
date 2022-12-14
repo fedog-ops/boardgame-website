@@ -3,10 +3,10 @@ This Front-End project is my interpretation of a reddit style application. Initi
 
 The user will be able to navigate to the homepage that will display all of the most recent articles and sort them by their favourite topics and preferences.
 
-LINK ...
+https://felix-boardgame-reviews.netlify.app
 
 Technologies Used
-For this project I used React.js as the main choice of Front-End framework and Tailwind CSS to accelerate the speed of being able to write out functionality and style the components on the fly with Tailwind's utility classes.
+For this project I used React.js as the main choice of Front-End.
 
 Setup & Installation
 In order to install and locally run this project, please run the following in your terminal:
