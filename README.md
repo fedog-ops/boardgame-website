@@ -1,7 +1,7 @@
 Boardgame Reviews
 This Front-End project is my interpretation of a reddit style application. Initially built using Create-React-App and uses React as the choice of framework.
 
-The user will be able to navigate to the homepage that will display all of the most recent articles and sort them by their favourite topics and preferences.
+The user will be able to navigate to the homepage that will display boardgame reviews and sort them by their favourite categories and preferences.
 
 https://felix-boardgame-reviews.netlify.app
 
